@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Security Assessment - Start Scan{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center mb-5">
+                <div class="mb-4">
+                    <i data-feather="shield" style="width: 64px; height: 64px;" class="text-primary"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">Security Posture Assessment</h1>
+                <p class="lead text-muted">
+                    Comprehensive 18-phase security evaluation of your domain using open-source tools
+                </p>
+            </div>
+
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i data-feather="search" class="me-2"></i>
+                        Start Security Assessment
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form action="{{ url_for('start_scan') }}" method="post" id="scanForm">
+                        <div class="mb-4">
+                            <label for="domain" class="form-label fw-semibold">
+                                <i data-feather="globe" class="me-2"></i>
+                                Target Domain
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-lg" 
+                                   id="domain" 
+                                   name="domain" 
+                                   placeholder="example.com" 
+                                   required
+                                   pattern="^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$">
+                            <div class="form-text">
+                                Enter the domain name you want to assess (e.g., example.com)
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i data-feather="play" class="me-2"></i>
+                                Start Security Assessment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="layers" class="text-info me-3"></i>
+                                <h5 class="card-title mb-0">18-Phase Analysis</h5>
+                            </div>
+                            <p class="card-text">
+                                Comprehensive security evaluation across 18 specialized phases including 
+                                subdomain enumeration, vulnerability scanning, and risk assessment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="activity" class="text-success me-3"></i>
+                                <h5 class="card-title mb-0">Real-time Monitoring</h5>
+                            </div>
+                            <p class="card-text">
+                                Live progress tracking with individual phase status updates, 
+                                findings display, and automatic dashboard redirect upon completion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i data-feather="list" class="me-2"></i>
+                        Assessment Phases
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ol class="list-unstyled">
+                                <li class="mb-2"><i data-feather="search" class="me-2 text-primary"></i>Subdomain Enumeration</li>
+                                <li class="mb-2"><i data-feather="globe" class="me-2 text-primary"></i>Enhanced Discovery (Amass)</li>
+                                <li class="mb-2"><i data-feather="server" class="me-2 text-primary"></i>IP Address Identification</li>
+                                <li class="mb-2"><i data-feather="shield" class="me-2 text-primary"></i>DNS Security Analysis</li>
+                                <li class="mb-2"><i data-feather="mail" class="me-2 text-primary"></i>Email Security Assessment</li>
+                                <li class="mb-2"><i data-feather="wifi" class="me-2 text-primary"></i>Network Security Evaluation</li>
+                                <li class="mb-2"><i data-feather="alert-triangle" class="me-2 text-primary"></i>Vulnerability Scanning</li>
+                                <li class="mb-2"><i data-feather="target" class="me-2 text-primary"></i>Nuclei Security Scans</li>
+                                <li class="mb-2"><i data-feather="eye" class="me-2 text-primary"></i>Data Exposure Detection</li>
+                            </ol>
+                        </div>
+                        <div class="col-md-6">
+                            <ol class="list-unstyled" start="10">
+                                <li class="mb-2"><i data-feather="settings" class="me-2 text-primary"></i>Misconfiguration Detection</li>
+                                <li class="mb-2"><i data-feather="user-x" class="me-2 text-primary"></i>Email Compromise Detection</li>
+                                <li class="mb-2"><i data-feather="key" class="me-2 text-primary"></i>Credential Leak Checks</li>
+                                <li class="mb-2"><i data-feather="thumbs-up" class="me-2 text-primary"></i>Domain Reputation Analysis</li>
+                                <li class="mb-2"><i data-feather="code" class="me-2 text-primary"></i>Web Technology Detection</li>
+                                <li class="mb-2"><i data-feather="database" class="me-2 text-primary"></i>CVE Information Gathering</li>
+                                <li class="mb-2"><i data-feather="compass" class="me-2 text-primary"></i>Shodan Intelligence</li>
+                                <li class="mb-2"><i data-feather="search" class="me-2 text-primary"></i>Sensitive Data Scanning</li>
+                                <li class="mb-2"><i data-feather="pie-chart" class="me-2 text-primary"></i>Risk Assessment</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('scanForm').addEventListener('submit', function(e) {
+    const button = this.querySelector('button[type="submit"]');
+    const icon = button.querySelector('[data-feather]');
+    
+    button.disabled = true;
+    button.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Starting Assessment...';
+});
+</script>
+{% endblock %}
